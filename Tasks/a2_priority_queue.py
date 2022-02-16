@@ -53,9 +53,13 @@ class PriorityQueue:
         :param ind: index of element (count from the beginning)
         :return: peeked element
         """
+        # реализация без приоритета очереди
+        # return self.queue_priority[- ind - 1]['elem']
 
-        # реализовать с приоритетом очереди
-        return self.queue_priority[- ind -1]['elem']
+        # реализация  с приоритетом очереди
+        for item in self.queue_priority:
+            if item['priority'] == priority:
+                return item[ind]['elem']
 
     def clear(self) -> None:
         """
