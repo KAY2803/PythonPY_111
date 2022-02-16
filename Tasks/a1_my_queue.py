@@ -47,3 +47,10 @@ class Queue:
         """
         self.__my_queue.clear() # O(1)
         return None
+
+    def __str__(self):
+        return f'{self.__my_queue}'
+
+
+# q = Queue()
+# print(q)

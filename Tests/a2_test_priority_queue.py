@@ -1,5 +1,6 @@
 import unittest
-from Tasks.a2_priority_queue import PriorityQueue
+# from Tasks.a2_priority_queue import PriorityQueue
+from Tasks.a2_priority_queue_dict import PriorityQueue
 
 priority_queue = PriorityQueue()
 
