@@ -65,29 +65,29 @@ class BinarySearchTree:
         :param value: value associated with key
         :return: None
         """
-        if self.root is None:
-            self.root = self._create_node(key, value)
-        else:
-            current_node = self.root
-            current_key = current_node['key']
-            while True:
+
+        def _insert(current_node: Optional[dict]):
+            if self.root is None:
+                self.root = self._create_node(key, value)
+            else:
+                current_key = current_node['key']
+
                 if key == current_key:
                     current_node['value'] = value
-                    break
+
                 if key > current_key:
                     if current_node["right"] is None:
                         current_node["right"] = self._create_node(key, value)  # добавляем лист
-                        break
                     else:
-                        current_node = current_node["right"]  # спускаемся дальше
-                        current_key = current_node['key']
+                        return _insert(current_node["right"])  # спускаемся дальше
+
                 else:
                     if current_node["left"] is None:
                         current_node["left"] = self._create_node(key, value)
-                        break
                     else:
-                        current_node = current_node["left"]
-                        current_key = current_node['key']
+                        return _insert(current_node["left"])
+
+        return _insert(self.root)
 
     def remove(self, key: int) -> Optional[Tuple[int, Any]]:
         """
